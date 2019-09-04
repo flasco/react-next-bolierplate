@@ -1,0 +1,7 @@
+.abc {
+  color: #38f;
+}
+
+:global(.abc) {
+  color: red;
+}
