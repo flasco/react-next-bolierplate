@@ -14,14 +14,13 @@ console.log('building...');
 app.prepare().then(() => {
   const server = new Koa();
 
+  server.use(middleware); //中间件加载
+
   server.use(async (ctx, next) => {
     // 挂载 render function
-    ctx.render = (pages, params) => app.render(ctx.req, ctx.res, pages, params);
+    ctx.render = async (pages, params) => await app.render(ctx.req, ctx.res, pages, params);
     await next();
   });
-
-  server.use(routes.routes(), routes.allowedMethods()); // 自定义路由加载
-  server.use(middleware); //中间件加载
 
   // 404页面兜底
   server.use(async (ctx, next) => {
@@ -29,6 +28,13 @@ app.prepare().then(() => {
     ctx.respond = false;
     await next();
   });
+
+  server.use(async (ctx, next) => {
+    ctx.res.statusCode = 200;
+    await next();
+  });
+
+  server.use(routes.routes(), routes.allowedMethods()); // 自定义路由加载
 
   server.listen(port, () => {
     console.log(`server is running at http://localhost:${port}`);
