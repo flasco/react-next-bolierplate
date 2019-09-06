@@ -25,6 +25,15 @@ yarn server # start server
   ... and more
 
 ## use code lint <only VSCode>
+
 - [vscode-eslint-config](https://www.pandaomeng.com/2019/05-06-vscode-eslint-typscript/)
 - vscode add `sass-lint`, `prettier` extension.
 - reload vscode
+
+## fileName agreement
+
+use horizontal line to split words.
+
+`person-level` rather than `PersonLevel`, unless it's a Class, you can use `PersonLevelHeader.js` to your fileName.
+
+But I prefer to use `person-level-header/index.js` to replace `PersonLevelHeader.js`
