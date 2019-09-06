@@ -3,7 +3,7 @@ class Message {
     this.data = data;
     this.msg = msg || '';
     this.code = code || 200;
-    this.success = code == 200 || code == 0;
+    this.success = code === 200 || code === 0;
   }
 }
 
