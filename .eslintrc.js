@@ -9,6 +9,11 @@ module.exports = {
       },
     ],
   },
+  settings: {
+    react: {
+      version: '16.8.0', // React version, default to the latest React stable release
+    },
+  },
   overrides: [
     {
       files: ['*.js', '*.jsx'],
