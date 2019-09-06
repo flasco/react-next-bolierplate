@@ -14,18 +14,9 @@ console.log('building...');
 app.prepare().then(() => {
   const server = new Koa();
 
-  server.use(middleware); //中间件加载
-
   server.use(async (ctx, next) => {
     // 挂载 render function
     ctx.render = async (pages, params) => await app.render(ctx.req, ctx.res, pages, params);
-    await next();
-  });
-
-  // 404页面兜底
-  server.use(async (ctx, next) => {
-    await handle(ctx.req, ctx.res);
-    ctx.respond = false;
     await next();
   });
 
@@ -34,6 +25,14 @@ app.prepare().then(() => {
     await next();
   });
 
+  routes.get('*', async ctx => {
+    // 避免 next 默认根据 page 生成的路由生效, 这里是兜底函数
+    if (!ctx.req.url.includes('/_next')) ctx.req.url = '==';
+    await handle(ctx.req, ctx.res);
+    ctx.respond = false;
+  });
+
+  server.use(middleware); //中间件加载
   server.use(routes.routes(), routes.allowedMethods()); // 自定义路由加载
 
   server.listen(port, () => {
