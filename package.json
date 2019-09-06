@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3006",
+    "dev": "PORT=3009 node app/server.js",
     "build": "next build",
-    "start": "next start -p 3007",
-    "server": "PORT=3009 node app/server.js"
+    "server:prod": "PORT=3009 NODE_ENV=production node app/server.js"
   },
   "dependencies": {
     "antd": "^3.23.1",
