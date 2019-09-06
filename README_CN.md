@@ -26,7 +26,6 @@ yarn server # 启动服务
 
 ## 使用代码校验 <只在 VSCode 下>
 
-- [vscode-eslint 配置](https://www.pandaomeng.com/2019/05-06-vscode-eslint-typscript/)
 - VSCode 安装 `sass-lint`, `prettier` 插件.
 - 重新启动 VSCode
 
