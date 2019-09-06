@@ -26,7 +26,7 @@ yarn server # 启动服务
 
 ## 使用代码校验 <只在 VSCode 下>
 
-- VSCode 安装 `sass-lint`, `prettier` 插件.
+- VSCode 安装 `sass-lint`, `prettier`, `eslint` 插件.
 - 重新启动 VSCode
 
 ## 文件名约定

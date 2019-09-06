@@ -26,7 +26,7 @@ yarn server # start server
 
 ## use code lint <only VSCode>
 
-- vscode add `sass-lint`, `prettier` extension.
+- vscode add `sass-lint`, `prettier`, `eslint` extension.
 - reload vscode
 
 ## fileName agreement
