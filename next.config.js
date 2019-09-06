@@ -52,6 +52,7 @@ module.exports = withPlugins(
   ],
   {
     distDir: 'build',
+    useFileSystemPublicRoutes: false,
     webpack(config, options) {
       return config;
     },

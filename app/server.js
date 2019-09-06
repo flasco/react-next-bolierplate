@@ -25,15 +25,13 @@ app.prepare().then(() => {
     await next();
   });
 
-  routes.get('*', async ctx => {
-    // 避免 next 默认根据 page 生成的路由生效, 这里是兜底函数
-    if (!ctx.req.url.includes('/_next')) ctx.req.url = '==';
-    await handle(ctx.req, ctx.res);
-    ctx.respond = false;
-  });
-
   server.use(middleware); //中间件加载
   server.use(routes.routes(), routes.allowedMethods()); // 自定义路由加载
+
+  server.use(async (ctx, next) => {
+    await handle(ctx.req, ctx.res);
+    await next();
+  });
 
   server.listen(port, () => {
     console.log(`server is running at http://localhost:${port}`);
