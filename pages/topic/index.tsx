@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 
 import styles from './index.scss';
 
-const Topic: NextPage<{ data: any[] }> = ({ data }) => {
+const Topic: NextPage<{ data: any[] }> = () => {
   return (
     <>
       <span className={styles.abc}>123123</span>
