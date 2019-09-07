@@ -46,6 +46,13 @@ module.exports = withPlugins(
             use: 'null-loader',
           });
         }
+        config.resolve.alias = {
+          components: path.resolve(__dirname, './components'),
+          pages: path.resolve(__dirname, './pages'),
+          utils: path.resolve(__dirname, './utils'),
+          ...config.resolve.alias,
+        };
+
         return config;
       },
     }),
@@ -53,8 +60,5 @@ module.exports = withPlugins(
   {
     distDir: 'build',
     useFileSystemPublicRoutes: false,
-    webpack(config, options) {
-      return config;
-    },
   }
 );
