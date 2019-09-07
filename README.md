@@ -14,7 +14,14 @@ https://github.com/flasco/react-next-bolierplate
 ```bash
 cd <project root dir>
 yarn # install dependencies
-yarn server # start server
+yarn dev # start server
+```
+
+## how-to-build
+
+```bash
+yarn build
+yarn server:prod # start server with prod mode
 ```
 
 ## some docs

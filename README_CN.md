@@ -17,6 +17,13 @@ yarn # 安装依赖
 yarn server # 启动服务
 ```
 
+## 怎么部署
+
+```bash
+yarn build
+yarn server:prod # start server with prod mode
+```
+
 ## 一些文档
 
 - [next.js](https://github.com/zeit/next.js)
